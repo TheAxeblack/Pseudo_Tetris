@@ -3,6 +3,8 @@
 #include "tetris.h"
 
 int main(void) {
+    puit p;
     printf("Hello, World!\n");
-    return 0;
+    init_jeux(p)
+    exit(EXIT_SUCCESS);
 }
