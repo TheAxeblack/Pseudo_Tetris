@@ -14,3 +14,4 @@ typedef struct {
 } puit;
 
 int init_jeux(puit puit1);
+void afficher_terrain(puit p);
