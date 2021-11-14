@@ -9,7 +9,7 @@ int init_jeux(puit p)
     for (i = 0; i < LIGNES; i++)
     {
         for (j = 0; j < COLONNES; j++) {
-            p.matrice[i][j] = 0;
+            p[i][j] = 0;
         }
     }
     return 0;
@@ -24,7 +24,8 @@ void afficher_terrain(puit p)
     {
         for (j = 0; j < COLONNES; j++)
         {
-            printf("%d ", p.matrice[i][j]);
+            printf("%d ", p[i][j]);
         }
+        printf("\n");
     }
 }

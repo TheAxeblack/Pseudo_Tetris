@@ -7,11 +7,7 @@ typedef struct {
     int j;
 } forme;
 
-typedef struct {
-    int n;
-    int m;
-    int **matrice;
-} puit;
+typedef int puit[LIGNES][COLONNES];
 
-int init_jeux(puit puit1);
+int init_jeux(puit p);
 void afficher_terrain(puit p);
