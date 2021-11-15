@@ -41,6 +41,7 @@ int lire_case(puit p, int num_ligne, int num_col) {
 
 /* Fonction liées aux formes */
 
+/* Initialisation d'un tableau de formes a 0 */
 int init_tab(tab t) {
     int i;
     int j;
@@ -56,13 +57,15 @@ int init_tab(tab t) {
     return 0;
 }
 
+
+/* Generation des differentes formes */
 int genererForme(tab t) {
     int i;
     int j;
     int k;
 
     for (i = 1; i <= NB_FORMES; i++) {
-        if (i == 1)
+        if (i == 1) /* Cas du tétrimino I */
         {
             t[i].length = 4;
             t[i].width = 1;
@@ -70,7 +73,7 @@ int genererForme(tab t) {
                 t[i].matrice[0][j] = 1;
             printf("t[1] ok\n");
         }
-        else if (i == 2)
+        else if (i == 2) /* Cas du tétrimino O */
         {
             t[i].length = 2;
             t[i].width = 2;
@@ -79,51 +82,47 @@ int genererForme(tab t) {
                     t[i].matrice[j][k] = 1;
             printf("t[2] ok\n");
         }
-        else
-        {
+        else {
             t[i].length = 3;
             t[i].width = 2;
             for (j = 0; j < t[i].width; j++) {
                 for (k = 0; k < t[i].length; k++) {
-                    switch (i)
-                    {
-                        case 3:
+                    switch (i) {
+                        case 3: /* Cas du tétrimino T */
                             t[i].matrice[j][k] = (j == 1 && k != 1) ? 0 : 1;
                             break;
-                        case 4:
+                        case 4: /* Cas du tétrimino L */
                             t[i].matrice[j][k] = (j == 1 && k != 0) ? 0 : 1;
                             break;
-                        case 5:
+                        case 5: /* Cas du tétrimino J */
                             t[i].matrice[j][k] = (j == 1 && k != 2) ? 0 : 1;
                             break;
-                        case 6:
+                        case 6: /* Cas du tétrimino Z */
                             t[i].matrice[j][k] = ((j == 0 && k != 2) || (j == 1 && k != 0)) ? 1 : 0;
                             break;
-                        default:
+                        default: /* Cas du tétrimino S */
                             t[i].matrice[j][k] = ((j == 0 && k != 0) || (j == 1 && k != 2)) ? 1 : 0;
                             break;
                     }
-                   /* if (i == 3) {
-                        t[i].matrice[j][k] = (j == 1 && k != 1) ? 0 : 1;
-                    } else if (i == 4) {
-                        t[i].matrice[j][k] = (j == 1 && k != 0) ? 0 : 1;
-                    } else if (i == 5) {
-                        if (j == 1 && k != 2)
-                            t[i].matrice[j][k] = 0;
-                        else
-                            t[i].matrice[j][k] = 1;
-                    } else if (i == 6) {
-                        if (j == 1 && k != 0)
-                            t[i].matrice[j][k] = 0;
-                        else
-                            t[i].matrice[j][k] = 1;
-                    }*/
+                    /* if (i == 3) {
+                         t[i].matrice[j][k] = (j == 1 && k != 1) ? 0 : 1;
+                     } else if (i == 4) {
+                         t[i].matrice[j][k] = (j == 1 && k != 0) ? 0 : 1;
+                     } else if (i == 5) {
+                         if (j == 1 && k != 2)
+                             t[i].matrice[j][k] = 0;
+                         else
+                             t[i].matrice[j][k] = 1;
+                     } else if (i == 6) {
+                         if (j == 1 && k != 0)
+                             t[i].matrice[j][k] = 0;
+                         else
+                             t[i].matrice[j][k] = 1;
+                     }*/
                 }
             }
             printf("t[%d] ok\n", i);
-
         }
-
     }
     return 0;
 }
