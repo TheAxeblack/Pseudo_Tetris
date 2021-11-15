@@ -127,3 +127,9 @@ int genererForme(tab t) {
     return 0;
 }
 
+void afficherForme(forme f)
+{
+    int i;
+    int j;
+    printf("En construction ...\n");
+}
