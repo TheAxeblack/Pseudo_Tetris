@@ -28,6 +28,4 @@ int init_tab(tab t);
 
 int genererForme(tab t);
 
-int init_matrice(int mat[LIGNES][COLONNES]);
-
-void aff_forme(forme f, int lg, int la);
+void afficherForme(forme f);
