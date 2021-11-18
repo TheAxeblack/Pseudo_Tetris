@@ -104,21 +104,6 @@ int genererForme(tab t) {
                             t[i].matrice[j][k] = ((j == 0 && k != 0) || (j == 1 && k != 2)) ? 1 : 0;
                             break;
                     }
-                    /* if (i == 3) {
-                         t[i].matrice[j][k] = (j == 1 && k != 1) ? 0 : 1;
-                     } else if (i == 4) {
-                         t[i].matrice[j][k] = (j == 1 && k != 0) ? 0 : 1;
-                     } else if (i == 5) {
-                         if (j == 1 && k != 2)
-                             t[i].matrice[j][k] = 0;
-                         else
-                             t[i].matrice[j][k] = 1;
-                     } else if (i == 6) {
-                         if (j == 1 && k != 0)
-                             t[i].matrice[j][k] = 0;
-                         else
-                             t[i].matrice[j][k] = 1;
-                     }*/
                 }
             }
             printf("t[%d] ok\n", i);
