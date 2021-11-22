@@ -38,14 +38,12 @@ void afficher_terrain(puit p) {
 int lire_case(puit p, int num_ligne, int num_col) {
     if ((num_ligne >= 0 && num_ligne < LIGNES - 1) && (num_col > 0 && num_col < COLONNES))
         return p.mat[num_ligne][num_col];
-    else {
-        printf("Erreur cette case est en dehors des limites d'affichages !\n");
+    else
         return (-1);
-    }
 }
 
 
-/* Fonction liées aux formes */
+/* Fonctions liées aux formes */
 
 /* Initialisation d'un tableau de formes a 0 */
 int init_tab(tab t) {
@@ -141,3 +139,20 @@ void afficherForme(forme f)
     }
 }
 
+void insert(puit *p, forme f, int x, int y)
+{
+    int i;
+    int j;
+    for (i = 0; i < H_MAX; i++)
+    {
+        for (j = 0; j < H_MAX; j++)
+        {
+            if (f.matrice[i][j] == 1)
+            {
+                p->mat[x+i][y+j] = f.matrice[i][j];
+            }
+            else
+                p->mat[x+i][y+j] = 0;
+        }
+    }
+}
