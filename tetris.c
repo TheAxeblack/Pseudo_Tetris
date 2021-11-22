@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "tetris.h"
 
 /* Fonctions liées au terrain de jeu */
@@ -112,9 +113,26 @@ int genererForme(tab t) {
     return 0;
 }
 
-void afficherForme(forme f)
+void afficherForme(forme f) /* Fonction qui affiche la forme placé en parametre */
 {
     int i;
     int j;
-    printf("En construction ...\n");
+    for (i = 0; i < f.width; i++)
+    {
+        for (j = 0; j < f.length; j++)
+        {
+            if (f.matrice[i][j] == 0)
+                printf(" ");
+            else
+                printf("%d", f.matrice[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+forme choisirAlea(tab t) /* Fonction qui choisit aleatoirement une forme */
+{
+    int alea;
+    alea = (rand() % (7 - 1 + 1)) + 1;
+    return t[alea];
 }

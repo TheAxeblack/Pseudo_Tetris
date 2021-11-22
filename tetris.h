@@ -29,3 +29,5 @@ int init_tab(tab t);
 int genererForme(tab t);
 
 void afficherForme(forme f);
+
+forme choisirAlea(tab t);

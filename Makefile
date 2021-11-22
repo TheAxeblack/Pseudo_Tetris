@@ -5,3 +5,5 @@ titouan: tetris.o main.c
 	$(CC) $(OPTIONS) main.c tetris.o -o titouan
 tetris.o: tetris.c tetris.h
 	$(CC) $(OPTIONS) -c tetris.c
+clean:
+	rm -rf *.o
