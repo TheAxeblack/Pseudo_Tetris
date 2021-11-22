@@ -2,7 +2,6 @@
 #define LIGNES 23 /* Définition d'une macro nommée LIGNES de valeur 22 représentant le nombre de lignes */
 #define COLONNES 12 /* Définition d'une macro nommée COLONNES de valeur 12  représentant le nombre de colonnes */
 #define NB_FORMES 7 /* Définition d'une macro nommée NB_FORMES de valeur 7 représentant le nombre de formes différentes */
-#define H_MAX 4 /* Définition d'une macro nommée H_MAX de valeur 4 représentant la hauteur maximale qu'un pièce peut atteindre */
 
 /* Définitions des nouveaux types nécéssaires au Tetris */
 

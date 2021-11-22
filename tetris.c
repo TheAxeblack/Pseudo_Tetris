@@ -113,7 +113,16 @@ int genererForme(tab t) {
     return 0;
 }
 
-void afficherForme(forme f) /* Fonction qui affiche la forme placé en parametre */
+/* Choix aleatoire d'une forme */
+forme choisirAlea(tab t)
+{
+    int alea;
+    alea = (rand() % (7 - 1 + 1)) + 1;
+    return t[alea];
+}
+
+/* Affichage des formes */
+void afficherForme(forme f)
 {
     int i;
     int j;
@@ -128,11 +137,4 @@ void afficherForme(forme f) /* Fonction qui affiche la forme placé en parametre
         }
         printf("\n");
     }
-}
-
-forme choisirAlea(tab t) /* Fonction qui choisit aleatoirement une forme */
-{
-    int alea;
-    alea = (rand() % (7 - 1 + 1)) + 1;
-    return t[alea];
 }
