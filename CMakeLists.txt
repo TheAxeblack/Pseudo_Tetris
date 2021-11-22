@@ -3,4 +3,4 @@ project(Pseudo_Tetris C)
 
 set(CMAKE_C_STANDARD 90)
 
-add_executable(Pseudo_Tetris main.c tetris.c tetris.h)
+add_executable(Pseudo_Tetris main.c tetris.c tetris.h game.c)

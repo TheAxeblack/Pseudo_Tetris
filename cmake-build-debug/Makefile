@@ -123,6 +123,33 @@ Pseudo_Tetris/fast:
 	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/build
 .PHONY : Pseudo_Tetris/fast
 
+game.o: game.c.o
+
+.PHONY : game.o
+
+# target to build an object file
+game.c.o:
+	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/game.c.o
+.PHONY : game.c.o
+
+game.i: game.c.i
+
+.PHONY : game.i
+
+# target to preprocess a source file
+game.c.i:
+	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/game.c.i
+.PHONY : game.c.i
+
+game.s: game.c.s
+
+.PHONY : game.s
+
+# target to generate assembly for a file
+game.c.s:
+	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/game.c.s
+.PHONY : game.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Pseudo_Tetris"
 	@echo "... edit_cache"
+	@echo "... game.o"
+	@echo "... game.i"
+	@echo "... game.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

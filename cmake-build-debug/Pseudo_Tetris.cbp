@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/game.c">
+			<Option target="Pseudo_Tetris"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/main.c">
 			<Option target="Pseudo_Tetris"/>
 		</Unit>

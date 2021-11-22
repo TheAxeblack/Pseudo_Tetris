@@ -13,11 +13,15 @@ typedef struct { /* définition d'un type forme qui est une structure de donnée
 
 typedef forme tab[NB_FORMES]; /* définition d'un type tab qui est un tableau de formes de taille NB_FORMES */
 
-typedef int puit[LIGNES][COLONNES]; /* définition d'un type puit qui est un tableau d'entier à double entrées */
+typedef struct {
+    int mat[LIGNES][COLONNES];
+    int row;
+    int columns;
+}puit;
 
 
 /* Prototypages des fonctions implémentées */
-int init_jeux(puit p);
+puit init_jeux(void);
 
 void afficher_terrain(puit p);
 
