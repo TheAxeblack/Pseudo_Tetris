@@ -11,17 +11,14 @@ typedef struct { /* définition d'un type forme qui est une structure de donnée
     int width; /* d'un entier width représentant la largeur */
 } forme;
 
+
 typedef forme tab[NB_FORMES]; /* définition d'un type tab qui est un tableau de formes de taille NB_FORMES */
 
-typedef struct {
-    int mat[LIGNES][COLONNES];
-    int row;
-    int columns;
-}puit;
+typedef int puit[LIGNES][COLONNES];
 
 
 /* Prototypages des fonctions implémentées */
-puit init_jeux(void);
+void init_jeux(puit p);
 
 void afficher_terrain(puit p);
 
@@ -35,4 +32,4 @@ void afficherForme(forme f);
 
 forme choisirAlea(tab t);
 
-void insert(puit *p, forme f, int x, int y);
+void insert(puit p, forme f);
