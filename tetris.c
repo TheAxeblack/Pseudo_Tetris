@@ -123,6 +123,7 @@ void afficherForme(forme f) {
     }
 }
 
+/* Fonction qui insert une forme dans le terrain de jeu */
 void insert(puit p, forme f) {
     int i, j;
 
