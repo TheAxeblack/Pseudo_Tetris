@@ -130,7 +130,7 @@ void insert(puit p, forme f) {
     for (i = 0; i < f.width; i++) {
         for (j = 0; j < f.length; j++) {
             if (f.matrice[i][j] == 1)
-                p[f.width + i][(COLONNES / 2) - j] = f.matrice[i][j];
+                p[i][((COLONNES / 2) - 1) + j] = f.matrice[i][j];
         }
     }
 }
