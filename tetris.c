@@ -83,8 +83,8 @@ int genererForme(tab t) {
                                              ? 0 : 1;
                         break;
                     default: /* Cas du tétrimino S */
-                        t[i].matrice[j][k] = ((j >= 2 || k >= 3) ||
-                                              ((j == 0 && (k < 1 || k >= 3)) || (j == 1 && k >= 2))) ? 0 : 1;
+                        t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 0 && (k < 1 || k >= 3)) || (j == 1 && k >= 2))
+                                             ? 0 : 1;
                         break;
                 }
             }
