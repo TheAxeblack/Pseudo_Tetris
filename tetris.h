@@ -9,8 +9,8 @@
 
 typedef struct { /* définition d'un type forme qui est une structure de donnée formée */
     int matrice[LIGNES][COLONNES]; /* d'un tabeau d'entier nommé matrice*/
-    int length; /* d'un entier length représentant la longueur */
-    int width; /* d'un entier width représentant la largeur */
+    int longueur; /* d'un entier length représentant la longueur */
+    int largeur; /* d'un entier width représentant la largeur */
 } forme;
 
 typedef forme tab[NB_FORMES]; /* définition d'un type tab qui est un tableau de formes de taille NB_FORMES */

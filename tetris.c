@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "tetris.h"
 
+
 /* Fonctions liées au terrain de jeu */
 void init_jeux(puit p) {
     int i, j;
@@ -44,10 +45,10 @@ int init_tab(tab t) {
     int i, j, k;
 
     for (i = 1; i <= NB_FORMES; i++) {
-        t[i].length = 0;
-        t[i].width = 0;
-        for (j = 0; j < t[i].width; j++)
-            for (k = 0; k < t[i].length; k++)
+        t[i].longueur = 0;
+        t[i].largeur = 0;
+        for (j = 0; j < t[i].largeur; j++)
+            for (k = 0; k < t[i].longueur; k++)
                 t[i].matrice[j][k] = 0;
     }
     return 0;
@@ -61,22 +62,22 @@ int genererForme(tab t) {
     for (i = 1; i <= NB_FORMES; i++) {
         if (i == 1) /* Cas du tétrimino I */
         {
-            t[i].length = 4;
-            t[i].width = 1;
-            for (j = 0; j < t[i].length; j++)
+            t[i].longueur = 4;
+            t[i].largeur = 1;
+            for (j = 0; j < t[i].longueur; j++)
                 t[i].matrice[0][j] = 1;
         } else if (i == 2) /* Cas du tétrimino O */
         {
-            t[i].length = 2;
-            t[i].width = 2;
-            for (j = 0; j < t[i].width; j++)
-                for (k = 0; k < t[i].length; k++)
+            t[i].longueur = 2;
+            t[i].largeur = 2;
+            for (j = 0; j < t[i].largeur; j++)
+                for (k = 0; k < t[i].longueur; k++)
                     t[i].matrice[j][k] = 1;
         } else {
-            t[i].length = 3;
-            t[i].width = 2;
-            for (j = 0; j < t[i].width; j++) {
-                for (k = 0; k < t[i].length; k++) {
+            t[i].longueur = 3;
+            t[i].largeur = 2;
+            for (j = 0; j < t[i].largeur; j++) {
+                for (k = 0; k < t[i].longueur; k++) {
                     switch (i) {
                         case 3: /* Cas du tétrimino T */
                             t[i].matrice[j][k] = (j == 1 && k != 1) ? 0 : 1;
@@ -104,7 +105,7 @@ int genererForme(tab t) {
 /* Choix aleatoire d'une forme */
 forme choisirAlea(tab t) {
     int alea;
-    alea = (rand() % (7 - 1 + 1)) + 1;
+    alea = (rand() % 7) + 1;
     return t[alea];
 }
 
@@ -112,12 +113,9 @@ forme choisirAlea(tab t) {
 void afficherForme(forme f) {
     int i, j;
 
-    for (i = 0; i < f.width; i++) {
-        for (j = 0; j < f.length; j++) {
-            if (f.matrice[i][j] == 0)
-                printf("  ");
-            else
-                printf("%d ", f.matrice[i][j]);
+    for (i = 0; i < f.largeur; i++) {
+        for (j = 0; j < f.longueur; j++) {
+            printf("%d ", f.matrice[i][j]);
         }
         printf("\n");
     }
@@ -127,11 +125,12 @@ void afficherForme(forme f) {
 void insert(puit p, forme f) {
     int i, j;
 
-    for (i = 0; i < f.width; i++) {
-        for (j = 0; j < f.length; j++) {
+    for (i = 0; i < f.largeur; i++) {
+        for (j = 0; j < f.longueur; j++) {
             if (f.matrice[i][j] == 1)
-                p[i][((COLONNES / 2) - 1) + j] = f.matrice[i][j];
+                p[i][j+(COLONNES / 3)] = f.matrice[i][j];
         }
     }
 }
+
 

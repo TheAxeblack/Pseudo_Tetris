@@ -22,7 +22,6 @@ int main(void) {
     afficherForme(f);
     printf("\n");
     insert(p, f);
-    printf("\n");
     afficher_terrain(p);
     exit(EXIT_SUCCESS);
 }
