@@ -65,26 +65,40 @@ int genererForme(tab t) {
                 switch (i) {
                     case 1: /* Cas du tétrimino I */
                         t[i].matrice[j][k] = (j != 0) ? 0 : 1;
+                        t[i].largeur = 1;
+                        t[i].longueur = k + 1;
                         break;
                     case 2: /* Cas du tétrimino O */
                         t[i].matrice[j][k] = (j >= 2 || k >= 2) ? 0 : 1;
+                        t[i].largeur = (j + 1) / 2;
+                        t[i].longueur = (k + 1) / 2;
                         break;
                     case 3: /* Cas du tétrimino T */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 1 && k != 1)) ? 0 : 1;
+                        t[i].largeur = (j + 1) / 2;
+                        t[i].longueur = k + 1;
                         break;
                     case 4: /* Cas du tétrimino L */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 1 && k != 0)) ? 0 : 1;
+                        t[i].largeur = (j + 1) / 2;
+                        t[i].longueur = k + 1;
                         break;
                     case 5: /* Cas du tétrimino J */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 1 && k != 2)) ? 0 : 1;
+                        t[i].largeur = (j + 1) / 2;
+                        t[i].longueur = k + 1;
                         break;
                     case 6: /* Cas du tétrimino Z */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 0 && k >= 2) || (j == 1 && (k < 1 || k >= 3)))
                                              ? 0 : 1;
+                        t[i].largeur = (j + 1) / 2;
+                        t[i].longueur = k + 1;
                         break;
                     default: /* Cas du tétrimino S */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 0 && (k < 1 || k >= 3)) || (j == 1 && k >= 2))
                                              ? 0 : 1;
+                        t[i].largeur = (j + 1) / 2;
+                        t[i].longueur = k + 1;
                         break;
                 }
             }
@@ -92,7 +106,6 @@ int genererForme(tab t) {
     }
     return 0;
 }
-
 
 /* Choix aleatoire d'une forme */
 forme choisirAlea(tab t) {
