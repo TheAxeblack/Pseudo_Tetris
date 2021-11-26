@@ -34,6 +34,8 @@ void afficherForme(forme f);
 
 forme choisirAlea(tab t);
 
-void insert(puit p, forme f);
+void insert(puit p, forme f, int x, int y);
 
-int positon_forme(puit p, forme f);
+int check(forme f);
+
+int descendre(puit p, forme f);

@@ -127,49 +127,43 @@ void afficherForme(forme f) {
 }
 
 /* Fonction qui insert une forme dans le terrain de jeu */
-void insert(puit p, forme f) {
+void insert(puit p, forme f, int x, int y) {
     int i, j;
 
     for (i = 0; i < f.largeur; i++) {
         for (j = 0; j < f.longueur; j++) {
             if (f.matrice[i][j] == 1)
-                p[f.largeur + i][f.longueur + j] += f.matrice[i][j];
+                p[x + i][y + j] += f.matrice[i][j];
         }
     }
 }
 
 
-int positon_forme(puit p, forme f) {
+int check(forme f) {
     int i, j;
-
-    for (i = 0; i < H_MAX; i++) {
-        for (j = 0; j < H_MAX; j++) {
-            if (f.longueur + j < 0 || f.longueur + j >= COLONNES || f.largeur + i >= LIGNES) {
-                if (f.matrice[i][j] == 0)
-                    return 1;
-            } else if (p[f.largeur + i][f.largeur + j] == 0 && f.matrice[i][j] == 0)
-                return 2;
+    for (i = 0; i < f.largeur; i++) {
+        for (j = 0; j < f.longueur; j++) {
+            if (f.matrice[i + 1][j] == 1)
+                return 1;
         }
     }
     return 0;
 }
 
-/*
-int descendre(puit p, forme f)
-{
-    int i, j;
-    for (i = 0; i < LIGNES; i++)
-    {
-        for (j = 0; j < COLONNES; j++)
-        {
-            while (f.matrice[i][j] != 2) {
-                */
-/* instructions pour faire descendre *//*
 
+int descendre(puit p, forme f) {
+    int i, j;
+
+    for (i = 1; i < LIGNES; i++) {
+        for (j = 0; j < COLONNES; j++) {
+            if (check(f) == 1)
+                return 1;
+            else {
+                insert(p, f, i, f.longueur);
+                afficher_terrain(p);
             }
-            return 1
         }
     }
     return 0;
 }
-*/
+
