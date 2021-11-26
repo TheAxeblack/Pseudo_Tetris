@@ -1,27 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <MLV/MLV_all.h>
 #include "tetris.h"
 
 int main(void) {
     /* Section de definition des variables */
-    puit p;
-    forme f;
-    tab t;
+    puit puit1;
+    forme forme1;
+    tab tab1;
 
     /* Generation de la graine pour l'aleatoire */
     srand(time(NULL));
 
+    /* Setup du tetris */
+    init_jeux(puit1);
+    init_tab(tab1);
+    genererForme(tab1);
+
+    /* Initialisation des variables */
+    forme1 = choisirAlea(tab1);
+
+
     /* Section de programme */
-    init_jeux(p);
-    init_tab(t);
-    afficher_terrain(p);
     printf("\n");
-    genererForme(t);
-    f = choisirAlea(t);
-    afficherForme(f);
-    printf("\n");
-    insert(p, f);
-    afficher_terrain(p);
+    insert(puit1, forme1);
+    afficher_terrain(puit1);
     exit(EXIT_SUCCESS);
 }
