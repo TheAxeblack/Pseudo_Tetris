@@ -36,6 +36,8 @@ forme choisirAlea(tab t);
 
 void insert(puit p, forme f, int x, int y);
 
-int check(forme f);
+void retirer(puit p, forme f, int x, int y);
+
+int check_vert(forme f);
 
 int descendre(puit p, forme f);

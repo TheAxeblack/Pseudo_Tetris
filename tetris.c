@@ -138,8 +138,20 @@ void insert(puit p, forme f, int x, int y) {
     }
 }
 
+/* Fonction qui retire une forme du terrain de jeu */
+void retirer(puit p, forme f, int x, int y) {
+    int i, j;
 
-int check(forme f) {
+    for (i = 0; i < f.largeur; i++) {
+        for (j = 0; j < f.longueur; j++) {
+            if (f.matrice[i][j] == 1)
+                p[x + i][y + j] = 0;
+        }
+    }
+}
+
+/* Fonction permettant de savoir si une peut etre deplace */
+int check_vert(forme f) {
     int i, j;
     for (i = 0; i < f.largeur; i++) {
         for (j = 0; j < f.longueur; j++) {
@@ -152,16 +164,15 @@ int check(forme f) {
 
 
 int descendre(puit p, forme f) {
-    int i, j;
+    int i;
 
     for (i = 1; i < LIGNES; i++) {
-        for (j = 0; j < COLONNES; j++) {
-            if (check(f) == 1)
-                return 1;
-            else {
-                insert(p, f, i, f.longueur);
-                afficher_terrain(p);
-            }
+        printf("check_vert(f) = %d\n", check_vert(f));
+        if (check_vert(f) == 1) {
+            return 1;
+        } else if (check_vert(f) == 0) {
+            retirer(p, f, i, f.longueur);
+            insert(p, f, i, f.longueur);
         }
     }
     return 0;

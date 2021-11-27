@@ -26,7 +26,8 @@ int main(void) {
     printf("\n");
     insert(puit1, forme1, 20, 4);
     afficher_terrain(puit1);
+    printf("\n");
     descendre(puit1, forme1);
-
+    afficher_terrain(puit1);
     exit(EXIT_SUCCESS);
 }
