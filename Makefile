@@ -10,4 +10,4 @@ game.o: game.c tetris.h
 tetris.o: tetris.c tetris.h
 	$(CC) $(OPTIONS_MLV1) $(OPTIONS) -c tetris.c $(OPTIONS_MLV2)
 clean:
-	rm -rf *.o
+	rm -rf *.o titouan
