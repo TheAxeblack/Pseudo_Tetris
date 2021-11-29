@@ -41,16 +41,38 @@ int main(){
 }
 
 
- int ligne_cplt (puit p, int i){
-  int j;
-  for (j = 0; j < LIGNES; j++) {
-    if (p[j][i] == 1)
+
+/*vérifie si une ligne est complète  */
+int check_lgn(puit p,int j){
+  int i;
+    for (i = 1; i < LIGNES-2; i++){
+      if (p[i][j] == 0){
+	return 0;
+      }
       return 1;
+    }
   }
-  return 0;
 }
 
+/*supprime si une ligne est complète*/
+void  supp_lcp(puit p ){
+  int i,j,tmp;
+  for(j=0; j < COLONNES-2; j++){
+  if(ligne_cplt (p, j)){
+    
+      tmp=p[i][j];
+      while(i!=0){
+	p[i][j]=p[i+1][j];
+	i--;
+		    
 
+      }
+      p[0][j]=tmp;
+	
+    }
+
+  }
+}
 
 /*
 
