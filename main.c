@@ -26,9 +26,14 @@ int main(void) {
 
     /* Section de programme */
     printf("\n");
-    insert(puit1, forme1, 0, forme1.longueur);
-    /* dep_horizontal_d(puit1, forme1); */
-    descendre(puit1, ptr_forme1);
+    afficher_terrain(puit1);
+    printf("\n");
+    check_hor_d(ptr_forme1);
+    insertionForme(puit1, ptr_forme1, 0, 5);
+    afficher_terrain(puit1);
+    dep_horizontal_d(puit1, ptr_forme1, 0);
+    dep_horizontal_d(puit1, ptr_forme1, 0);
+    /* descendre(puit1, ptr_forme1); */
     printf("\n");
     /* descendre(puit1, forme1); */
 

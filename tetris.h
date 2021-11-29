@@ -34,12 +34,14 @@ void afficherForme(forme f);
 
 forme choisirAlea(tab t);
 
-void insert(puit p, forme f, int x, int y);
+void insertionForme(puit p, forme *f, int x, int y);
 
-void retirer(puit p, forme f, int x, int y);
+void retirer(puit p, forme *f, int x, int y);
 
-int check_vert(forme f);
+int check_vert(forme *f);
 
-int descendre(puit p, forme * f);
+int check_hor_d(forme *f);
 
-int dep_horizontal_d(puit p, forme f);
+int descendre(puit p, forme *f);
+
+int dep_horizontal_d(puit p, forme *f, int x);

@@ -21,7 +21,7 @@ void init_jeux(puit p) {
 void afficher_terrain(puit p) {
     int i, j;
 
-    for (i = 0; i < (LIGNES); i++) {
+    for (i = 1; i < (LIGNES); i++) {
         for (j = 0; j < COLONNES; j++)
             printf("%d ", p[i][j]);
         printf("\n");
@@ -36,7 +36,6 @@ int lire_case(puit p, int num_ligne, int num_col) {
     else
         return (-1);
 }
-
 
 /* Fonctions liées aux formes */
 
@@ -127,24 +126,24 @@ void afficherForme(forme f) {
 }
 
 /* Fonction qui insert une forme dans le terrain de jeu */
-void insert(puit p, forme f, int x, int y) {
+void insertionForme(puit p, forme *f, int x, int y) {
     int i, j;
 
-    for (i = 0; i < f.largeur; i++) {
-        for (j = 0; j < f.longueur; j++) {
-            if (f.matrice[i][j] == 1)
-                p[x + i][y + j] += f.matrice[i][j];
+    for (i = 0; i < f->largeur; i++) {
+        for (j = 0; j < f->longueur; j++) {
+            if (f->matrice[i][j] == 1)
+                p[x + i][y + j] += f->matrice[i][j];
         }
     }
 }
 
 /* Fonction qui retire une forme du terrain de jeu */
-void retirer(puit p, forme f, int x, int y) {
+void retirer(puit p, forme *f, int x, int y) {
     int i, j;
 
-    for (i = 0; i < f.largeur; i++) {
-        for (j = 0; j < f.longueur; j++) {
-            if (f.matrice[i][j] == 1)
+    for (i = 0; i < f->largeur; i++) {
+        for (j = 0; j < f->longueur; j++) {
+            if (f->matrice[i][j] == 1)
                 p[x + i][y + j] = 0;
         }
     }
@@ -152,11 +151,11 @@ void retirer(puit p, forme f, int x, int y) {
 
 /* Fonctions permettant de savoir si une forme peut être deplacée */
 /* En vertical */
-int check_vert(forme f) {
+int check_vert(forme *f) {
     int i, j;
-    for (i = 0; i < f.largeur; i++) {
-        for (j = 0; j < f.longueur; j++) {
-            if (f.matrice[i + 2][j] == 1)
+    for (i = 0; i < f->largeur; i++) {
+        for (j = 0; j < f->longueur; j++) {
+            if (f->matrice[i + 2][j] == 1)
                 return 1;
         }
     }
@@ -164,11 +163,11 @@ int check_vert(forme f) {
 }
 
 /* En horizontal */
-int check_hor_d(forme f) {
+int check_hor_d(forme *f) {
     int i, j;
-    for (i = 0; i < f.largeur; i++) {
-        for (j = 1; j < (f.longueur - 1); j++) {
-            if (f.matrice[i][j + 2] == 1) {
+    for (i = 0; i < f->largeur; i++) {
+        for (j = 1; j < (f->longueur - 1); j++) {
+            if (f->matrice[i][j + 2] == 1) {
                 return 1;
             }
         }
@@ -182,36 +181,47 @@ int check_hor_d(forme f) {
 int descendre(puit p, forme *f) {
     int i;
 
-    i = f->matrice[0][0];
-    if (check_vert(*f) == 1) {
-        return i;
-    } else if (check_vert(*f) == 0 && i != (LIGNES - 2)) {
-        if (f->longueur == 2) {
-            retirer(p, *f, i - 1, f->longueur + 2);
-            insert(p, *f, i, f->longueur + 2);
-        } else {
-            retirer(p, *f, i - 1, f->longueur);
-            insert(p, *f, i, f->longueur);
+    i = f->matrice[0][0]; /* i <- @ de matrice[0][0] */
+    if (check_vert(f) == 1) {
+        return 1;
+    } else if (check_vert(f) == 0) {
+        while (i < LIGNES - 2) {
+            if (f->longueur == 2) {
+                insertionForme(p, f, i - 1, f->longueur + 2);
+                retirer(p, f, i - 1, f->longueur + 2);
+                insertionForme(p, f, i, f->longueur + 2);
+            } else {
+                insertionForme(p, f, i - 1, f->longueur);
+                retirer(p, f, i - 1, f->longueur);
+                insertionForme(p, f, i, f->longueur);
+            }
+            afficher_terrain(p);
+
+            printf("\n");
+            i++;
         }
     }
-    afficher_terrain(p);
-    printf("\n");
     return 0;
 }
 
 /* En horizontal */
-int dep_horizontal_d(puit p, forme f) {
-    int *j;
 
-    j = &f.matrice[0][0];
-    printf("j = %d ; check_hor_d(f) = %d\n\n", *j, check_hor_d(f));
+/* a droite */
+int dep_horizontal_d(puit p, forme *f, int x) {
+    int j;
+
+    j = f->matrice[0][0];
     if (check_hor_d(f) == 1) {
         return 1;
-    } else if (check_hor_d(f) == 0 && *j != (COLONNES - f.longueur)) {
-        retirer(p, f, 0, *j);
-        insert(p, f, 0, *j);
+    } else if (check_hor_d(f) == 0 && j != (COLONNES - f->longueur)) {
+        retirer(p, f, x, j);
+        insertionForme(p, f, x, j);
+        insertionForme(p, f, x, j + 1);
     }
     afficher_terrain(p);
     printf("\n");
     return 0;
 }
+
+
+/* a gauche */

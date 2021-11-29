@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
+				<Option working_dir="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
+				<Option working_dir="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Pseudo_Tetris">
-				<Option output="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Pseudo_Tetris" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
+				<Option output="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Pseudo_Tetris" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -41,15 +41,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 Pseudo_Tetris"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 Pseudo_Tetris"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Pseudo_Tetris/fast">
-				<Option output="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Pseudo_Tetris" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
+				<Option output="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Pseudo_Tetris" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -61,36 +61,36 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 Pseudo_Tetris/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 Pseudo_Tetris/fast"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
+				<Option working_dir="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j6 -f &quot;/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/game.c">
+		<Unit filename="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/game.c">
 			<Option target="Pseudo_Tetris"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/main.c">
+		<Unit filename="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/main.c">
 			<Option target="Pseudo_Tetris"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/tetris.c">
+		<Unit filename="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/tetris.c">
 			<Option target="Pseudo_Tetris"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/tetris.h">
+		<Unit filename="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/tetris.h">
 			<Option target="Pseudo_Tetris"/>
 		</Unit>
-		<Unit filename="/mnt/c/Users/User/Documents/Cours/FAC/L2_Info/C/Projet/Pseudo_Tetris/CMakeLists.txt">
+		<Unit filename="/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
