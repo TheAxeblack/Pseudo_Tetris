@@ -8,6 +8,7 @@ int main(void) {
     /* Section de definition des variables */
     puit puit1;
     forme forme1;
+    forme *ptr_forme1;
     tab tab1;
 
     /* Generation de la graine pour l'aleatoire */
@@ -20,14 +21,16 @@ int main(void) {
 
     /* Initialisation des variables */
     forme1 = choisirAlea(tab1);
+    ptr_forme1 = &forme1;
 
 
     /* Section de programme */
     printf("\n");
-    insert(puit1, forme1, 20, 4);
-    afficher_terrain(puit1);
+    insert(puit1, forme1, 0, forme1.longueur);
+    /* dep_horizontal_d(puit1, forme1); */
+    descendre(puit1, ptr_forme1);
     printf("\n");
-    descendre(puit1, forme1);
-    afficher_terrain(puit1);
+    /* descendre(puit1, forme1); */
+
     exit(EXIT_SUCCESS);
 }

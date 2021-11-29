@@ -40,4 +40,6 @@ void retirer(puit p, forme f, int x, int y);
 
 int check_vert(forme f);
 
-int descendre(puit p, forme f);
+int descendre(puit p, forme * f);
+
+int dep_horizontal_d(puit p, forme f);

@@ -76,29 +76,29 @@ int genererForme(tab t) {
                     case 3: /* Cas du tétrimino T */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 1 && k != 1)) ? 0 : 1;
                         t[i].largeur = (j + 1) / 2;
-                        t[i].longueur = k + 1;
+                        t[i].longueur = k;
                         break;
                     case 4: /* Cas du tétrimino L */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 1 && k != 0)) ? 0 : 1;
                         t[i].largeur = (j + 1) / 2;
-                        t[i].longueur = k + 1;
+                        t[i].longueur = k;
                         break;
                     case 5: /* Cas du tétrimino J */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 1 && k != 2)) ? 0 : 1;
                         t[i].largeur = (j + 1) / 2;
-                        t[i].longueur = k + 1;
+                        t[i].longueur = k;
                         break;
                     case 6: /* Cas du tétrimino Z */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 0 && k >= 2) || (j == 1 && (k < 1 || k >= 3)))
                                              ? 0 : 1;
                         t[i].largeur = (j + 1) / 2;
-                        t[i].longueur = k + 1;
+                        t[i].longueur = k;
                         break;
                     default: /* Cas du tétrimino S */
                         t[i].matrice[j][k] = ((j >= 2 || k >= 3) || (j == 0 && (k < 1 || k >= 3)) || (j == 1 && k >= 2))
                                              ? 0 : 1;
                         t[i].largeur = (j + 1) / 2;
-                        t[i].longueur = k + 1;
+                        t[i].longueur = k;
                         break;
                 }
             }
@@ -150,31 +150,68 @@ void retirer(puit p, forme f, int x, int y) {
     }
 }
 
-/* Fonction permettant de savoir si une peut etre deplace */
+/* Fonctions permettant de savoir si une forme peut être deplacée */
+/* En vertical */
 int check_vert(forme f) {
     int i, j;
     for (i = 0; i < f.largeur; i++) {
         for (j = 0; j < f.longueur; j++) {
-            if (f.matrice[i + 1][j] == 1)
+            if (f.matrice[i + 2][j] == 1)
                 return 1;
         }
     }
     return 0;
 }
 
-
-int descendre(puit p, forme f) {
-    int i;
-
-    for (i = 1; i < LIGNES; i++) {
-        printf("check_vert(f) = %d\n", check_vert(f));
-        if (check_vert(f) == 1) {
-            return 1;
-        } else if (check_vert(f) == 0) {
-            retirer(p, f, i, f.longueur);
-            insert(p, f, i, f.longueur);
+/* En horizontal */
+int check_hor_d(forme f) {
+    int i, j;
+    for (i = 0; i < f.largeur; i++) {
+        for (j = 1; j < (f.longueur - 1); j++) {
+            if (f.matrice[i][j + 2] == 1) {
+                return 1;
+            }
         }
     }
     return 0;
 }
 
+/* Fonctions permettant le mouvement des formes */
+
+/* En vertical */
+int descendre(puit p, forme *f) {
+    int i;
+
+    i = f->matrice[0][0];
+    if (check_vert(*f) == 1) {
+        return i;
+    } else if (check_vert(*f) == 0 && i != (LIGNES - 2)) {
+        if (f->longueur == 2) {
+            retirer(p, *f, i - 1, f->longueur + 2);
+            insert(p, *f, i, f->longueur + 2);
+        } else {
+            retirer(p, *f, i - 1, f->longueur);
+            insert(p, *f, i, f->longueur);
+        }
+    }
+    afficher_terrain(p);
+    printf("\n");
+    return 0;
+}
+
+/* En horizontal */
+int dep_horizontal_d(puit p, forme f) {
+    int *j;
+
+    j = &f.matrice[0][0];
+    printf("j = %d ; check_hor_d(f) = %d\n\n", *j, check_hor_d(f));
+    if (check_hor_d(f) == 1) {
+        return 1;
+    } else if (check_hor_d(f) == 0 && *j != (COLONNES - f.longueur)) {
+        retirer(p, f, 0, *j);
+        insert(p, f, 0, *j);
+    }
+    afficher_terrain(p);
+    printf("\n");
+    return 0;
+}
