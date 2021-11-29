@@ -21,7 +21,7 @@ void init_jeux(puit p) {
 void afficher_terrain(puit p) {
     int i, j;
 
-    for (i = 1; i < (LIGNES); i++) {
+    for (i = 0; i < (LIGNES); i++) {
         for (j = 0; j < COLONNES; j++)
             printf("%d ", p[i][j]);
         printf("\n");
@@ -208,15 +208,18 @@ int descendre(puit p, forme *f) {
 
 /* a droite */
 int dep_horizontal_d(puit p, forme *f, int x) {
-    int j;
+    int i;
 
-    j = f->matrice[0][0];
+    i = 1;
+    while (lire_case(p, x, i) != 1)
+    {
+        i++;
+    }
     if (check_hor_d(f) == 1) {
         return 1;
-    } else if (check_hor_d(f) == 0 && j != (COLONNES - f->longueur)) {
-        retirer(p, f, x, j);
-        insertionForme(p, f, x, j);
-        insertionForme(p, f, x, j + 1);
+    } else if (check_hor_d(f) == 0 && i != (COLONNES - f->longueur)) {
+        retirer(p, f, x, i);
+        insertionForme(p, f, x, i+1);
     }
     afficher_terrain(p);
     printf("\n");

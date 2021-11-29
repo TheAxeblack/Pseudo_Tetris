@@ -29,10 +29,11 @@ int main(void) {
     afficher_terrain(puit1);
     printf("\n");
     check_hor_d(ptr_forme1);
-    insertionForme(puit1, ptr_forme1, 0, 5);
+    insertionForme(puit1, ptr_forme1, 1, 5);
     afficher_terrain(puit1);
-    dep_horizontal_d(puit1, ptr_forme1, 0);
-    dep_horizontal_d(puit1, ptr_forme1, 0);
+    printf("\n");
+    dep_horizontal_d(puit1, ptr_forme1, 1);
+    dep_horizontal_d(puit1, ptr_forme1, 1);
     /* descendre(puit1, ptr_forme1); */
     printf("\n");
     /* descendre(puit1, forme1); */
