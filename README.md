@@ -13,7 +13,6 @@ A faire :
 
     Rotation des pièces
     Module de sauvegarde
-    Déplacement latéral droit et gauche
     La partie graphique sous MLV
     "Interaction clavier"
     
