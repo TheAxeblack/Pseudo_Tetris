@@ -177,6 +177,60 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/main.c.s
 .PHONY : main.c.s
 
+menu.o: menu.c.o
+
+.PHONY : menu.o
+
+# target to build an object file
+menu.c.o:
+	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/menu.c.o
+.PHONY : menu.c.o
+
+menu.i: menu.c.i
+
+.PHONY : menu.i
+
+# target to preprocess a source file
+menu.c.i:
+	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/menu.c.i
+.PHONY : menu.c.i
+
+menu.s: menu.c.s
+
+.PHONY : menu.s
+
+# target to generate assembly for a file
+menu.c.s:
+	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/menu.c.s
+.PHONY : menu.c.s
+
+save.o: save.c.o
+
+.PHONY : save.o
+
+# target to build an object file
+save.c.o:
+	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/save.c.o
+.PHONY : save.c.o
+
+save.i: save.c.i
+
+.PHONY : save.i
+
+# target to preprocess a source file
+save.c.i:
+	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/save.c.i
+.PHONY : save.c.i
+
+save.s: save.c.s
+
+.PHONY : save.s
+
+# target to generate assembly for a file
+save.c.s:
+	$(MAKE) -f CMakeFiles/Pseudo_Tetris.dir/build.make CMakeFiles/Pseudo_Tetris.dir/save.c.s
+.PHONY : save.c.s
+
 tetris.o: tetris.c.o
 
 .PHONY : tetris.o
@@ -219,6 +273,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... menu.o"
+	@echo "... menu.i"
+	@echo "... menu.s"
+	@echo "... save.o"
+	@echo "... save.i"
+	@echo "... save.s"
 	@echo "... tetris.o"
 	@echo "... tetris.i"
 	@echo "... tetris.s"

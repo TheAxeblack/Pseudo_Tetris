@@ -2,11 +2,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <MLV/MLV_all.h>
-#include "tetris.h"
+#include "menu.h"
+#include "save.h"
 
 int main(void) {
     /* Section de definition des variables */
     puit puit1;
+    puit puit2;
     forme forme1;
     forme forme2;
     forme *ptr_forme1;
@@ -18,6 +20,7 @@ int main(void) {
 
     /* Setup du tetris */
     init_jeux(puit1);
+    init_jeux(puit2);
     init_tab(tab1);
     genererForme(tab1);
 
@@ -40,5 +43,8 @@ int main(void) {
     descendre(puit1, ptr_forme1);
     insertionForme(puit1, ptr_forme2, 0, 5);
     descendre(puit1, ptr_forme2);
+    save_partie(puit1);
+    load_partie(puit2);
+    afficher_terrain(puit2);
     exit(EXIT_SUCCESS);
 }
