@@ -10,7 +10,7 @@ void init_jeux(puit p) {
     for (i = 0; i < LIGNES; i++) {
         for (j = 0; j < COLONNES; j++) {
             if (i == (LIGNES - 1) || j == 0 || j == (COLONNES - 1))
-                p[i][j] = 1;
+                p[i][j] = 9;
             else
                 p[i][j] = 0;
         }
@@ -131,8 +131,11 @@ void insertionForme(puit p, forme *f, int x, int y) {
 
     for (i = 0; i < f->largeur; i++) {
         for (j = 0; j < f->longueur; j++) {
-            if (f->matrice[i][j] == 1)
+            if (f->matrice[i][j] == 1) {
                 p[x + i][y + j] += f->matrice[i][j];
+                f->x = x;
+                f->y = y;
+            }
         }
     }
 }
@@ -151,12 +154,20 @@ void retirer(puit p, forme *f, int x, int y) {
 
 /* Fonctions permettant de savoir si une forme peut être deplacée */
 /* En vertical */
-int check_vert(forme *f) {
+int check_vert(puit p, forme *f) {
     int i, j;
+
     for (i = 0; i < f->largeur; i++) {
         for (j = 0; j < f->longueur; j++) {
-            if (f->matrice[i + 2][j] == 1)
-                return 1;
+            if (f->longueur < 4) {
+                if (p[f->x + 2][f->y] != 0 && f->matrice[1][2] != 1)
+                    return 1;
+                else if (p[f->x + 2][f->y] != 0)
+                    return 2;
+            } else {
+                if (p[f->x + 1][f->y] != 0)
+                    return 1;
+            }
         }
     }
     return 0;
@@ -165,12 +176,30 @@ int check_vert(forme *f) {
 /* En horizontal */
 int check_hor_d(forme *f) {
     int i, j;
-    for (i = 0; i < f->largeur; i++) {
-        for (j = 1; j < (f->longueur - 1); j++) {
-            if (f->matrice[i][j + 2] == 1) {
-                return 1;
+
+    if (f->longueur < 4) {
+        for (i = 0; i < f->largeur; i++) {
+            for (j = 1; j < (f->longueur - 1); j++) {
+                if (f->matrice[i][j + 2] == 9) {
+                    return 1;
+                }
             }
         }
+    } else {
+        for (i = 0; i < f->largeur; i++) {
+            for (j = 2; j < (f->longueur - 1); j++) {
+                if (f->matrice[i][j + 2] == 9) {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+int check_hor_g(forme *f, puit p) {
+    if (p[f->x][f->y - 1] != 0 || p[f->x + 1][f->y - 1] != 0) {
+        return 1;
     }
     return 0;
 }
@@ -181,25 +210,17 @@ int check_hor_d(forme *f) {
 int descendre(puit p, forme *f) {
     int i;
 
-    i = f->matrice[0][0]; /* i <- @ de matrice[0][0] */
-    if (check_vert(f) == 1) {
+    i = 1;
+    if (check_vert(p, f) == 1) {
         return 1;
-    } else if (check_vert(f) == 0) {
-        while (i < LIGNES - 2) {
-            if (f->longueur == 2) {
-                insertionForme(p, f, i - 1, f->longueur + 2);
-                retirer(p, f, i - 1, f->longueur + 2);
-                insertionForme(p, f, i, f->longueur + 2);
-            } else {
-                insertionForme(p, f, i - 1, f->longueur);
-                retirer(p, f, i - 1, f->longueur);
-                insertionForme(p, f, i, f->longueur);
-            }
-            afficher_terrain(p);
+    }
+    while (check_vert(p, f) == 0) {
+        retirer(p, f, f->x, f->y);
+        insertionForme(p, f, f->x + 1, f->y);
+        afficher_terrain(p);
 
-            printf("\n");
-            i++;
-        }
+        printf("\n");
+        i++;
     }
     return 0;
 }
@@ -211,15 +232,14 @@ int dep_horizontal_d(puit p, forme *f, int x) {
     int i;
 
     i = 1;
-    while (lire_case(p, x, i) != 1)
-    {
+    while ((lire_case(p, x, i) == 0 && lire_case(p, x + 1, i) == 0)) {
         i++;
     }
     if (check_hor_d(f) == 1) {
         return 1;
-    } else if (check_hor_d(f) == 0 && i != (COLONNES - f->longueur)) {
-        retirer(p, f, x, i);
-        insertionForme(p, f, x, i+1);
+    } else if (check_hor_d(f) == 0 && i < (COLONNES - f->longueur - 1)) {
+        retirer(p, f, f->x, f->y);
+        insertionForme(p, f, f->x, f->y + 1);
     }
     afficher_terrain(p);
     printf("\n");
@@ -228,3 +248,29 @@ int dep_horizontal_d(puit p, forme *f, int x) {
 
 
 /* a gauche */
+int dep_horizontal_g(puit p, forme *f) {
+    if (check_hor_g(f, p) == 1)
+        return 1;
+    else {
+        retirer(p, f, f->x, f->y);
+        insertionForme(p, f, f->x, f->y - 1);
+    }
+    afficher_terrain(p);
+    printf("\n");
+    return 0;
+}
+
+/* rotation */
+
+/*
+void rotationDroite(tab t, forme *f) {
+
+    int i, j, k;
+    if (f == t[3] || f == t[4] || f == t[5]) {
+        for (i = 0; i < f->largeur; i++) {
+            for (j = 0, k = 0; j < f->longueur; j++, k++) {
+                f->matrice[i][j] = f->matrice[f->y][f->x];
+            }
+        }
+    }
+}*/

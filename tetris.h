@@ -8,10 +8,12 @@
 
 /* Définitions des nouveaux types nécéssaires au Tetris */
 
-typedef struct {                    /* définition d'un type forme qui est une structure de donnée formée */
+typedef struct {                  /* définition d'un type forme qui est une structure de donnée formée */
     int matrice[LIGNES][COLONNES];  /* d'un tabeau d'entier nommé matrice*/
     int longueur;                   /* d'un entier longueur représentant la longueur */
     int largeur;                    /* d'un entier largeur représentant la largeur */
+    int x;                          /* d'une coordonnée x */
+    int y;                          /* d'une coordonnée y */
 } forme;
 
 typedef forme tab[NB_FORMES]; /* définition d'un type tab qui est un tableau de formes de taille NB_FORMES */
@@ -38,10 +40,16 @@ void insertionForme(puit p, forme *f, int x, int y);
 
 void retirer(puit p, forme *f, int x, int y);
 
-int check_vert(forme *f);
+int check_vert(puit p, forme *f);
 
 int check_hor_d(forme *f);
+
+int check_hor_g(forme *f, puit p);
 
 int descendre(puit p, forme *f);
 
 int dep_horizontal_d(puit p, forme *f, int x);
+
+int dep_horizontal_g(puit p, forme *f);
+
+void rotationDroite(tab t, forme *f);
