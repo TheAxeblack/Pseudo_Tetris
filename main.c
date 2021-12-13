@@ -43,7 +43,8 @@ int main(void) {
     descendre(puit1, ptr_forme1);
     insertionForme(puit1, ptr_forme2, 0, 5);
     descendre(puit1, ptr_forme2);
-    save_partie(puit1);
+    save_partie(puit1, ptr_forme1);
+    afficher_terrain(puit2);
     load_partie(puit2);
     afficher_terrain(puit2);
     exit(EXIT_SUCCESS);

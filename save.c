@@ -2,9 +2,10 @@
 #include <MLV/MLV_all.h>
 
 
-int save_partie(puit p) {
+int save_partie(puit p, forme *f) {
     int i, j;
-    FILE *fic;
+    FILE* fic = NULL;
+
     fic = fopen("game.save", "w");
     if (fic == NULL)
         return 1;
@@ -20,8 +21,7 @@ int save_partie(puit p) {
     return 0;
 }
 
-int load_partie(puit p)
-{
+int load_partie(puit p) {
     int i, j;
     FILE *fic;
 
@@ -29,10 +29,8 @@ int load_partie(puit p)
     if (fic == NULL)
         return 1;
 
-    for (i = 0; i < LIGNES; i++)
-    {
-        for (j = 0; j < COLONNES; j++)
-        {
+    for (i = 0; i < LIGNES; i++) {
+        for (j = 0; j < COLONNES; j++) {
             fscanf(fic, "%d", &p[i][j]);
         }
     }
