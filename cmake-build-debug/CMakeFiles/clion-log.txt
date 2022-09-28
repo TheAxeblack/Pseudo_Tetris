@@ -1,4 +1,0 @@
-C:\Windows\system32\wsl.exe --distribution Debian --exec /usr/bin/zsh -c "export CLION_IDE=TRUE && export JETBRAINS_IDE=TRUE && cd /mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug && /usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G 'CodeBlocks - Unix Makefiles' /mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris"
--- Configuring done
--- Generating done
--- Build files have been written to: /mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug

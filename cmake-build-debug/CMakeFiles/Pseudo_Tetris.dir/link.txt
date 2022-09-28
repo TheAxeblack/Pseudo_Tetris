@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/Pseudo_Tetris.dir/main.c.o CMakeFiles/Pseudo_Tetris.dir/tetris.c.o CMakeFiles/Pseudo_Tetris.dir/game.c.o CMakeFiles/Pseudo_Tetris.dir/menu.c.o CMakeFiles/Pseudo_Tetris.dir/save.c.o  -o Pseudo_Tetris 

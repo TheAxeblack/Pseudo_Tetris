@@ -1,3 +1,0 @@
-/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/CMakeFiles/Pseudo_Tetris.dir
-/mnt/f/Users/Utilisateur/Documents/Cours/FAC/L2/C/Projet/Pseudo_Tetris/cmake-build-debug/CMakeFiles/edit_cache.dir
