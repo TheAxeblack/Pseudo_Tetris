@@ -1,4 +1,18 @@
 # Pseudo_Tetris
-Projet en C de la deuxième année de Licence Informatique de l'UJM
+Projet en C de la deuxième année de Licence Informatique de l'UJM.
 
-Dans le cadre de ma formation en Licence Informatique à la Faculté des Sciences et Techniques de l'Université Jean Monnet de Saint-Étienne, j'ai eu à réaliser un projet en langage C sous la forme d'un "pseudo Tetris".
+Afin de compiler ce projet il faut utiliser un Makefile qui s'éxécute comme cela :
+
+    make titouan
+
+Afin d'avoir un rendu propre il faut utiliser la commande suivante :
+    
+    make clean
+
+A faire :
+
+    Rotation des pièces
+    Module de sauvegarde
+    La partie graphique sous MLV
+    "Interaction clavier"
+    
