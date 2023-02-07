@@ -5,14 +5,12 @@
 #include "menu.h"
 #include "save.h"
 
-int main(void) {
+int main(void)
+{
     /* Section de definition des variables */
-    puit puit1;
-    puit puit2;
-    forme forme1;
-    forme forme2;
-    forme *ptr_forme1;
-    forme *ptr_forme2;
+    puit puit1, puit2;
+    forme forme1, forme2;
+    forme *ptr_forme1, *ptr_forme2;
     tab tab1;
 
     /* Generation de la graine pour l'aleatoire */
