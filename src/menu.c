@@ -11,8 +11,6 @@ Menu aff_menu() {
     a = 260;
     b = 280;
 
-    MLV_create_window("tetris", "menu", 640, 480);
-
     MLV_draw_filled_rectangle(0, 0, 640, 480, MLV_COLOR_BLACK);
     MLV_draw_text_box(260, 280, 120, 46, "cliquer pour\ncontinuer", 10, MLV_COLOR_BLUE3, MLV_COLOR_WHITE,
                       MLV_COLOR_BLACK, MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);

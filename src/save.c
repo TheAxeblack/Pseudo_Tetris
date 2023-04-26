@@ -1,19 +1,16 @@
 #include "save.h"
 #include <MLV/MLV_all.h>
 
-int save_partie(puit p, forme *f) {
-    int i, j;
+int save_partie(puit p) {
+    int i;
     FILE *fic = NULL;
 
-    fic = fopen("game.save", "w");
+    fic = fopen(SAVE_FILE_NAME, SAVE_FILE_MODE);
     if (fic == NULL)
         return 1;
 
     for (i = 0; i < LIGNES; i++) {
-        for (j = 0; j < COLONNES; j++) {
-            fprintf(fic, "%d", p[i][j]);
-        }
-        fputc('\n', fic);
+        fwrite(p[i], sizeof(int), COLONNES, fic);
     }
 
     fclose(fic);
@@ -21,17 +18,16 @@ int save_partie(puit p, forme *f) {
 }
 
 int load_partie(puit p) {
-    int i, j;
+    int i;
     FILE *fic;
 
-    fic = fopen("game.save", "r");
+    fic = fopen("game.save", "rb");
     if (fic == NULL)
         return 1;
 
     for (i = 0; i < LIGNES; i++) {
-        for (j = 0; j < COLONNES; j++) {
-            fscanf(fic, "%d", &p[i][j]);
-        }
+        fread(p[i], sizeof(int), COLONNES, fic);
     }
+
     return 0;
 }
