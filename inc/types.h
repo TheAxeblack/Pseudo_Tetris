@@ -9,36 +9,32 @@
 #include <MLV/MLV_all.h>
 
 /* Définitions des Macros */
-#define NB_MAX 150
-#define LARGEUR_GRILLE 23
-#define HAUTEUR_GRILLE 12
-#define NB_FORMES 7 /* Définition d'une macro nommée NB_FORMES de valeur 7 représentant le nombre de formes différentes */
-#define H_MAX 4     /* Definition d'une macro nommée H_MAX de 4 representant la hauteur max d'une forme */
-#define TAILLE_CASE 30
+#define NB_MAX 150        /* # max d'élements */
+#define LARGEUR_GRILLE 23 /* # colonnes dans la grille du jeu */
+#define HAUTEUR_GRILLE 12 /* # de lignes dans la grille du jeu*/
+#define NB_FORMES 7       /* # formes != */
+#define H_MAX 4           /* Hauteur maximale d'une forme*/
+#define TAILLE_CASE 30    /* Taille d'une case de la grille en pixels */
 
 
 /* Définitions des nouveaux types nécéssaires au Tetris */
 typedef struct {                   /* définition d'un type forme qui est une structure de donnée formée */
-    int matrice[H_MAX][H_MAX]; /* d'un tabeau d'entier nommé matrice*/
-    struct {
-        int largeur;
-        int hauteur;
-    } dimensions;                   /* d'une structure représentant les dimensions */
+    int matrice[H_MAX][H_MAX];     /* d'un tabeau d'entier nommé matrice*/
     int x;                         /* d'une coordonnée x */
     int y;                         /* d'une coordonnée y */
     MLV_Color color;               /* d'une couleur */
 } forme;
 
-typedef struct {
+typedef struct { /* définition du type joueur ayant un score et un niveau */
     int score;
     int niveau;
 } joueur;
 
-typedef struct {
+typedef struct { /* définition de la grille, ayant une taille de HAUTEUR*LARGEUR, un tableau de forme de taille 7, et un # de formes*/
     int matrice[HAUTEUR_GRILLE][LARGEUR_GRILLE];
     forme formes[NB_MAX];
     int nb_formes;
 } grille;
 
 
-#endif //TYPES_H
+#endif
