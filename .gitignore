@@ -46,6 +46,9 @@
 *.mod*
 *.cmd
 
+# Les fichiers deprécés
+deprecated/*
+
 # Les .o
 obj/*.o
 obj/*.do
@@ -55,3 +58,4 @@ bin/*
 
 # Les fichiers de sauvegarde
 *.save
+.idea/

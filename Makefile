@@ -1,33 +1,37 @@
 CC = gcc
-OPTIONS = -W -Wall -g -std=c89 -pedantic -O3 `pkg-config --cflags MLV`
-DEBUG = -W -Wall -pedantic -std=c89 -g `pkg-config --cflags MLV`
-MLV = `pkg-config --libs-only-l MLV` `pkg-config --libs-only-other --libs-only-L MLV`
+CFLAGS = -W -Wall -g -std=c89 -pedantic -O3 `pkg-config --cflags MLV`
+DEBUGFLAGS = -W -Wall -pedantic -std=c99 -g `pkg-config --cflags MLV`
+LDLIBS = `pkg-config --libs-only-l MLV` `pkg-config --libs-only-other --libs-only-L MLV`
 
-TXT_FILES = $(wildcard src/*.c)
-DAT_FILES = $(patsubst src/%.c, obj/%.o, $(TXT_FILES))
-DEB_FILES = $(patsubst src/%.c, obj/%.do, $(TXT_FILES))
+SRCDIR = src
+OBJDIR = obj
+BINDIR = bin
 
-all:
-	make bin/prog
-	make bin/debug
+SRCFILES = $(wildcard $(SRCDIR)/*.c)
+OBJFILES = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCFILES))
+DBGFILES = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.do, $(SRCFILES))
 
-prog:
-	bin/prog
+.PHONY: all clean
 
-debug:
-	bin/debug
+all: $(BINDIR)/prog $(BINDIR)/debug
 
-bin/prog: $(DAT_FILES)
-	$(CC) $(OPTIONS) $(DAT_FILES) -o $@ $(MLV)
+$(BINDIR)/prog: $(OBJFILES)
+	$(CC) $(CFLAGS) $(OBJFILES) -o $@ $(LDLIBS)
 
-bin/debug: $(DEB_FILES)
-	$(CC) $(DEBUG)  $(DEB_FILES) -o $@ $(MLV)
+$(BINDIR)/debug: $(DBGFILES)
+	$(CC) $(DEBUGFLAGS) $(DBGFILES) -o $@ $(LDLIBS)
 
-obj/%.do: src/%.c
-	$(CC) $(DEBUG)  -Iinc -c $< -o $@
+$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
+	$(CC) $(CFLAGS) -Iinc -c $< -o $@
 
-obj/%.o : src/%.c
-	$(CC) $(OPTIONS) -Iinc -c $< -o $@
+$(OBJDIR)/%.do: $(SRCDIR)/%.c | $(OBJDIR)
+	$(CC) $(DEBUGFLAGS) -Iinc -c $< -o $@
 
-clean :
-	rm -rf obj/* */*~ bin/*
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
+
+$(BINDIR):
+	mkdir -p $(BINDIR)
+
+clean:
+	rm -rf $(OBJDIR) $(BINDIR)
