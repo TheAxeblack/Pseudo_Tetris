@@ -45,8 +45,13 @@
 # Kernel Module Compile Results
 *.mod*
 *.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+
+# Les .o
+obj/*.o
+obj/*.do
+
+# Les executables
+bin/*
+
+# Les fichiers de sauvegarde
+*.save

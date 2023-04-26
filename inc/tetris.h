@@ -1,3 +1,6 @@
+#ifndef TETRIS_H
+#define TETRIS_H
+
 /* Définitions des Macros */
 #define NB_MAX 150
 #define LIGNES 23   /* Définition d'une macro nommée LIGNES de valeur 22 représentant le nombre de lignes */
@@ -7,8 +10,7 @@
 
 /* Définitions des nouveaux types nécéssaires au Tetris */
 
-typedef struct
-{                                  /* définition d'un type forme qui est une structure de donnée formée */
+typedef struct {                   /* définition d'un type forme qui est une structure de donnée formée */
     int matrice[LIGNES][COLONNES]; /* d'un tabeau d'entier nommé matrice*/
     int longueur;                  /* d'un entier longueur représentant la longueur */
     int largeur;                   /* d'un entier largeur représentant la largeur */
@@ -19,6 +21,10 @@ typedef struct
 typedef forme tab[NB_FORMES]; /* définition d'un type tab qui est un tableau de formes de taille NB_FORMES */
 
 typedef int puit[LIGNES][COLONNES]; /* définition d'un type puit qui est un tableau d'entiers a double entrées */
+
+typedef enum {
+    nvlprt, save, chargerprt, score, regle, quitter
+} Menu;
 
 /* Prototypages des fonctions implémentées */
 void init_jeux(puit p);
@@ -52,3 +58,21 @@ int dep_horizontal_d(puit p, forme *f, int x);
 int dep_horizontal_g(puit p, forme *f);
 
 void rotationDroite(tab t, forme *f);
+
+void partie(puit p, tab t);
+
+int partie_finie(puit p);
+
+void message_fin(puit p);
+
+int check_lgn(puit p, int j);
+
+int calc_score(puit p);
+
+void affichage_score(puit p);
+
+void supp_lcp(puit p);
+
+Menu aff_menu();
+
+#endif

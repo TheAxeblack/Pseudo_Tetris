@@ -2,48 +2,48 @@
 #include <stdlib.h>
 #include <time.h>
 #include <MLV/MLV_all.h>
-#include "menu.h"
-#include "save.h"
+#include "tetris.h"
 
-int main(void)
-{
-    /* Section de definition des variables */
-    puit puit1, puit2;
-    forme forme1, forme2;
-    forme *ptr_forme1, *ptr_forme2;
+int main(){
+    Menu menu1;
+    puit puit1;
     tab tab1;
-
-    /* Generation de la graine pour l'aleatoire */
     srand(time(NULL));
 
     /* Setup du tetris */
     init_jeux(puit1);
-    init_jeux(puit2);
     init_tab(tab1);
     genererForme(tab1);
 
-    /* Initialisation des variables */
-    forme1 = choisirAlea(tab1);
-    ptr_forme1 = &forme1;
-
-    forme2 = choisirAlea(tab1);
-    ptr_forme2 = &forme2;
+    /* variables */
+    menu1 = aff_menu();
 
     /* Section de programme */
-    printf("\n");
-    afficher_terrain(puit1);
-    printf("\n");
-    insertionForme(puit1, ptr_forme1, 0, 5);
-    afficher_terrain(puit1);
-    printf("\n");
-    dep_horizontal_g(puit1, ptr_forme1);
-    dep_horizontal_d(puit1, ptr_forme1, ptr_forme1->x);
-    descendre(puit1, ptr_forme1);
-    insertionForme(puit1, ptr_forme2, 0, 5);
-    descendre(puit1, ptr_forme2);
-    save_partie(puit1, ptr_forme1);
-    afficher_terrain(puit2);
-    load_partie(puit2);
-    afficher_terrain(puit2);
+    while(menu1 != quitter){
+        if(menu1==nvlprt){
+            MLV_create_window("jeu", "tetris", 640, 480);
+            partie(puit1, tab1);
+        }
+        else if (menu1 == chargerprt) {
+            MLV_create_window("jeu", "tetris", 640, 480);
+            MLV_free_window();
+        }
+        else if (menu1 == save) {
+            MLV_create_window("jeu", "tetris", 640, 480);
+            MLV_free_window();
+        }
+        else if(menu1 == score){
+            MLV_create_window("jeu", "tetris", 640, 480);
+            MLV_free_window();
+        }
+        if(menu1 == regle){
+            MLV_create_window("jeu", "tetris", 640, 480);
+            MLV_draw_filled_rectangle(0, 0, 640, 480, MLV_COLOR_BLUE3);
+            MLV_draw_text( 30, 50, "Tetris met le joueur au défi de réaliser des lignes complètes en déplaçant des pièces de formes différentes, les tétrominos, qui défilent depuis le haut jusqu'au bas de l'écran.", MLV_COLOR_MAGENTA);
+            MLV_draw_text( 30, 130,  "Les lignes complétées disparaissent tout en rapportant des points et le joueur peut de nouveau remplir les cases libérées.", MLV_COLOR_MAGENTA);
+            MLV_free_window();
+        }
+    }
+
     exit(EXIT_SUCCESS);
 }
