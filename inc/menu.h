@@ -1,0 +1,15 @@
+#ifndef MENU_H
+#define MENU_H
+
+typedef enum {
+    MENU_NOUVELLE_PARTIE,
+    MENU_CHARGER_PARTIE,
+    MENU_SAUVEGARDER_PARTIE,
+    MENU_OPTIONS,
+    MENU_MEILLEURS_SCORES,
+    MENU_REGLES,
+    MENU_QUITTER
+} Menu;
+
+
+#endif

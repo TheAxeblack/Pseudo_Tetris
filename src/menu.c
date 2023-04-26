@@ -1,3 +1,4 @@
+/*
 #include<stdio.h>
 #include<stdlib.h>
 #include <MLV/MLV_all.h>
@@ -103,4 +104,64 @@ Menu aff_menu() {
 
     MLV_free_window();
     return c;
+}
+*/
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include <MLV/MLV_all.h>
+#include "tetris.h"
+
+Menu aff_menu() {
+    Menu choix = MENU_NOUVELLE_PARTIE;
+    int x, y;
+
+    while (1) {
+        MLV_draw_filled_rectangle(0, 0, 640, 480, MLV_COLOR_BLACK);
+        MLV_draw_text_box(260, 30, 120, 46, "Nouvelle partie", 10, MLV_COLOR_BLUE3, MLV_COLOR_WHITE, MLV_COLOR_BLACK,
+                          MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+        MLV_draw_text_box(160, 122, 120, 46, "Charger une partie", 10, MLV_COLOR_BLUE3, MLV_COLOR_WHITE,
+                          MLV_COLOR_BLACK,
+                          MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+        MLV_draw_text_box(360, 122, 120, 46, "Sauvegarder la partie", 10, MLV_COLOR_BLUE3, MLV_COLOR_WHITE,
+                          MLV_COLOR_BLACK, MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+        MLV_draw_text_box(260, 216, 120, 46, "Meilleurs scores", 10, MLV_COLOR_BLUE3, MLV_COLOR_WHITE, MLV_COLOR_BLACK,
+                          MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+        MLV_draw_text_box(260, 310, 120, 46, "Règles du jeu", 10, MLV_COLOR_BLUE3, MLV_COLOR_WHITE, MLV_COLOR_BLACK,
+                          MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+        MLV_draw_text_box(260, 404, 120, 46, "Quitter", 10, MLV_COLOR_BLUE3, MLV_COLOR_WHITE, MLV_COLOR_BLACK,
+                          MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+        MLV_actualise_window();
+        MLV_wait_mouse(&x, &y);
+
+        if ((x > 260 && x < 380) && (y > 30 && y < 80)) {
+            if (MLV_get_mouse_button_state(MLV_BUTTON_LEFT) == MLV_PRESSED) {
+                choix = MENU_NOUVELLE_PARTIE;
+                break;
+            }
+        }
+
+        if ((x > 160 && x < 280) && (y > 122 && y < 172)) {
+            if (MLV_get_mouse_button_state(MLV_BUTTON_LEFT) == MLV_PRESSED) {
+                choix = MENU_CHARGER_PARTIE;
+                break;
+            }
+        }
+
+        if ((x > 360 && x < 480) && (y > 122 && y < 172)) {
+            if (MLV_get_mouse_button_state(MLV_BUTTON_LEFT) == MLV_PRESSED) {
+                choix = MENU_SAUVEGARDER_PARTIE;
+                break;
+            }
+        }
+
+        if ((x > 260 && x < 380) && (y > 216 && y < 266)) {
+            if (MLV_get_mouse_button_state(MLV_BUTTON_LEFT) == MLV_PRESSED) {
+                choix = MENU_MEILLEURS_SCORES;
+                break;
+            }
+        }
+    }
+    return choix;
 }

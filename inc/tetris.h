@@ -1,6 +1,9 @@
 #ifndef TETRIS_H
 #define TETRIS_H
 
+#include "menu.h"
+#include "save.h"
+
 /* Définitions des Macros */
 #define NB_MAX 150
 #define LIGNES 23   /* Définition d'une macro nommée LIGNES de valeur 22 représentant le nombre de lignes */
@@ -22,9 +25,6 @@ typedef forme tab[NB_FORMES]; /* définition d'un type tab qui est un tableau de
 
 typedef int puit[LIGNES][COLONNES]; /* définition d'un type puit qui est un tableau d'entiers a double entrées */
 
-typedef enum {
-    nvlprt, save, chargerprt, score, regle, quitter
-} Menu;
 
 /* Prototypages des fonctions implémentées */
 void init_jeux(puit p);
@@ -72,7 +72,5 @@ int calc_score(puit p);
 void affichage_score(puit p);
 
 void supp_lcp(puit p);
-
-Menu aff_menu();
 
 #endif
