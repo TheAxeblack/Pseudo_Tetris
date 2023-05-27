@@ -11,6 +11,8 @@ int main(void)
     MLV_Button_state etat_touche;
     int continuer;
 
+    srand(time(NULL));
+
     continuer = 1;
 
     /* On initialise la grille et les formes */
