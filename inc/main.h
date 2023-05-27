@@ -3,5 +3,9 @@
 
 #include "grille.h"
 #include "joueur.h"
+#include "forme.h"
+#include "game.h"
+#include "types.h"
+#include "usage.h"
 
-#endif //MAIN_H
+#endif

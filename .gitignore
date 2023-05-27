@@ -59,3 +59,4 @@ bin/*
 # Les fichiers de sauvegarde
 *.save
 .idea/
+.vscode/

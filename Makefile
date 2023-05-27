@@ -34,4 +34,4 @@ $(BINDIR):
 	mkdir -p $(BINDIR)
 
 clean:
-	rm -rf $(OBJDIR) $(BINDIR)
+	rm -rf obj/* bin/*
