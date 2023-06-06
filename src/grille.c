@@ -2,14 +2,14 @@
 
 void initialiser_grille(grille *g)
 {
-    int i, j;
-    g->nb_formes = 0;
+    int i, j;         /* Incréments de boucles */
+    g->nb_formes = 0; /* Aucune forme dans la grille */
     for (i = 0; i < HAUTEUR_GRILLE; i++)
     {
         for (j = 0; j < LARGEUR_GRILLE; j++)
         {
             if (i == 0 || i == (HAUTEUR_GRILLE - 1) || j == (LARGEUR_GRILLE - 1))
-                g->matrice[i][j] = -1;
+                g->matrice[i][j] = -1;                                            
             else
                 g->matrice[i][j] = 0;
         }

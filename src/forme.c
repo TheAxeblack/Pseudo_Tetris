@@ -2,7 +2,7 @@
 
 int generer_formes(forme t[NB_FORMES])
 {
-    int i, j, k;
+    int i, j, k; /* Incréments de boucles */
 
     for (i = 0; i < NB_FORMES; i++)
     {
@@ -72,10 +72,10 @@ int generer_formes(forme t[NB_FORMES])
 
 void dessiner_forme(forme f)
 {
-    int i, j;
-    int x, y;
-    MLV_Color color;
-    int px, py;
+    int i, j;        /* Incréments de boucles */
+    int x, y;        /* Coordonnées de la forme */
+    MLV_Color color; /* Couleur de la forme */
+    int px, py;      /* Coordonnées du pixel à dessiner */
 
     x = f.x;
     y = f.y;

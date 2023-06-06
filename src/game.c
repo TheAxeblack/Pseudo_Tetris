@@ -2,7 +2,7 @@
 
 int verifier_deplacement(forme *f, grille *g, int nouvelle_x, int nouvelle_y)
 {
-    int i, j;
+    int i, j; /* Incréments de boucles */
 
     if (nouvelle_x < 0 || nouvelle_x + f->dimensions.largeur > LARGEUR_GRILLE || nouvelle_y + f->dimensions.hauteur > HAUTEUR_GRILLE)
         return 0;
@@ -21,25 +21,25 @@ int verifier_deplacement(forme *f, grille *g, int nouvelle_x, int nouvelle_y)
 
 void deplacer_forme_gauche(forme *f, grille *g)
 {
-    if (verifier_deplacement(f, g, f->x - 1, f->y))
+    if (verifier_deplacement(f, g, f->x - 1, f->y)) /* On verifie si le deplacement est possible */
         f->x--;
 }
 
 void deplacer_forme_droite(forme *f, grille *g)
 {
-    if (verifier_deplacement(f, g, f->x + 1, f->y))
+    if (verifier_deplacement(f, g, f->x + 1, f->y)) /* On verifie si le deplacement est possible */
         f->x++;
 }
 
 void deplacer_forme_bas(forme *f, grille *g)
 {
-    if (verifier_deplacement(f, g, f->x, f->y + 1))
+    if (verifier_deplacement(f, g, f->x, f->y + 1)) /* On verifie si le deplacement est possible */
         f->y++;
 }
 
 void rotation_piece(forme *f, grille *g)
 {
-    int i, j;
+    int i, j;   /* Incréments de boucles */
     forme temp; /* Pièce temporaire pour stocker la nouvelle configuration après rotation */
 
     /* Copier la pièce originale dans la pièce temporaire */
@@ -84,7 +84,7 @@ void deplacer_forme(forme *f, grille *g, MLV_Event event, MLV_Keyboard_button sy
 
 void supprimer_lignes_complete(grille *g, int *score)
 {
-    int i, j, k;
+    int i, j, k;                         /* Incréments de boucles */
     int lignes_complete[LARGEUR_GRILLE]; /* Tableau pour stocker les indices des lignes complètes */
     int nb_lignes_complete;              /* Nombre de lignes complètes trouvées */
 
@@ -134,7 +134,14 @@ void supprimer_lignes_complete(grille *g, int *score)
     score += nb_lignes_complete * 100;
 }
 
-int verifier_defaite(forme *f)
+int verifier_defaite(grille *g)
 {
-    return (f->y <= 0); /* Si la pièce est en haut de la grille, c'est la défaite */
+    int i; /* Incréments de boucles */
+
+    for (i = 1; i < (LARGEUR_GRILLE - 1); i++)
+    {
+        if (g->matrice[0][i] != 0) /* Si une case de la ligne supérieure est occupée, c'est la défaite */
+            return 1;
+    }
+    return 0;
 }
