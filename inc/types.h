@@ -43,4 +43,4 @@ typedef struct
     int nb_formes;                               /* d'un entier nommé nb_formes */
 } grille;
 
-#endif
+#endif /* TYPES_H */

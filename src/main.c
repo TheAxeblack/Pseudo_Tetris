@@ -40,7 +40,7 @@ int main(void)
         {
             continuer = 0;
         }
-        
+
         supprimer_lignes_complete(&g, &j.score);
     }
 

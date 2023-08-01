@@ -11,4 +11,4 @@ int generer_formes(forme t[NB_FORMES]);
 /* dessine la forme f */
 void dessiner_forme(forme f);
 
-#endif
+#endif /* FORME_H */

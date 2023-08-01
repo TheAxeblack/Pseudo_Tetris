@@ -9,7 +9,7 @@ void initialiser_grille(grille *g)
         for (j = 0; j < LARGEUR_GRILLE; j++)
         {
             if (i == 0 || i == (HAUTEUR_GRILLE - 1) || j == (LARGEUR_GRILLE - 1))
-                g->matrice[i][j] = -1;                                            
+                g->matrice[i][j] = -1;
             else
                 g->matrice[i][j] = 0;
         }
